@@ -2,7 +2,12 @@
 ## Two functions - makeCacheMatrix & cacheSolve - are created to compute and  
 ## cache the inverse of a matrix when the matrix is recurring.
 
-## The first function creates a object that can cache the inverse of a matrix
+## The first function creates an object that can cache the inverse of a matrix:
+## sets the content of the matrix
+## gets the content of the matrix
+## sets the inverse 
+## gets the inverse
+
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
   set <- function(y) {
@@ -18,8 +23,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The second fucntion calculates the inverse of the matrix called above, if non-existent, 
-## otherwise retrieves cached inverse.
+## The second function calculates the inverse of the matrix called above, if non-existent, 
+## otherwise retrieves cached inverse and returns the inverse of the matrix
 
 cacheSolve <- function(x, ...) {
   i <- x$getinverse()
@@ -30,5 +35,5 @@ cacheSolve <- function(x, ...) {
   data <- x$get()
   i <- solve(data,...)
   x$setinverse(i)        
-  i                        ## Return a matrix that is the inverse of 'x'
+  i                        ## Returns a matrix that is the inverse of 'x'
 }
